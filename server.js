@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -10,7 +11,6 @@ if (process.env.NODE_ENV === "production") {
 }
 // Add routes, both API and view
 app.get("*", function(req, res) {
-  console.log("WILD CARD USER: ", req.user);
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 // Start the API server
